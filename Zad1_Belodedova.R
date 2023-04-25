@@ -125,13 +125,13 @@ summary(years_bryansk_meteodata)
 #по месячно, остальное в формуле- константы
 
 #### 1. температурy нужно поделить на 10
-years_bryansk_meteodata[,"tavg"]= years_bryansk_meteodata$tavg / 10
+years_bryansk_meteodata[,"tavg"]= years_bryansk_meteodata$tavg / 5
 summary (years_bryansk_meteodata)
 
 #### 2. Превратим в нули все NA и где tavg больше 10 градусов
 
 years_bryansk_meteodata [is.na(years_bryansk_meteodata$tavg), "tavg"] = 0
-years_bryansk_meteodata [years_bryansk_meteodata$tavg<10, "tavg"] = 0
+years_bryansk_meteodata [years_bryansk_meteodata$tavg<5, "tavg"] = 0
 
 #проверяем, что температура получилась в или 0 или больше 10 градусов
 summary(years_bryansk_meteodata)
@@ -218,4 +218,4 @@ Yield = sum(sumT_months$Yi)
 
 Yield
 
-# Ответ: 18.33 ц/га
+# Ответ: 39.73 ц/га
